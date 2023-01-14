@@ -1,0 +1,92 @@
+{%extends "base.html"%}
+
+{% block titulo %}Informacion de factura{%  endblock %}
+
+{%block contenido%}
+
+<h1>INFORMACION DE FACTURA</h1>
+    <form action="login.php" method="post">
+        <fieldset>
+            <legend>Información</legend>
+            <p>
+              <label for="id">Id:</label>
+              <input readonly type="text" id="id" value="1">
+            </p>
+            <p>
+              <label for="fecha">Fecha:</label>
+              <input readonly type="text" id="fecha" value="10/10/2022"></input>
+            </p>
+            <p>
+              <label for="nombre">Nombre(s) cliente:</label>
+              <input readonly type="text" id="nombre" value="Aury Margarita"></input>
+            </p>
+            <p>
+              <label for="apellido">Apellidos cliente:</label>
+              <input readonly type="text" id="apellido" value="Nuñez Campo"></input>
+            </p>
+            <p>
+              <label for="identificacion">Identificacion:</label>
+              <input readonly type="text" id="identificacion" value="1065591174"></input>
+            </p>
+            <p>
+              <label for="direccion">Direccion:</label>
+              <input readonly type="text" id="direccion" value="CARRERA 19B # 13BBIS 20"></input>
+            </p>
+            <p>
+              <label for="ciudad">Ciudad:</label>
+              <input readonly type="text" id="ciudad" value="Valledupar"></input>
+            </p>
+            <p>
+              <label for="estado">Estado:</label>
+              <input readonly type="text" id="estado" value="Cesar"></input>
+            </p>
+            <p>
+              <label for="pais">Pais:</label>
+              <input readonly type="text" id="pais" value="Colombia"></input>
+            </p>
+            <p>
+              <label for="codPostal">Codigo postal:</label>
+              <input readonly type="text" id="codPostal" value="200005"></input>
+            </p>
+        </fieldset>
+    </form>
+      <h2>LISTA COMPRA</h2>
+      <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Vehiculo</th>
+                <th>Precio unidad</th>
+                <th>Cantidad</th>
+                <th>IVA</th> 
+                <th>Precio total</th>
+            </tr>
+        </thead>        
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>RENAUL/KWID/2022</td>
+                <td>$48.500.000</td>
+                <td>1</td>
+                <td>5%</td>
+                <td>$50.925.000</td>    
+            </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>$50.925.000</td>    
+          </tr>
+
+        </tfoot>
+    </table>  
+
+    <p>
+      <input type="button" value="Confirmar compra" onclick="{%url 'principal'%}"></input>
+    </p>
+    
+{%endblock%} 

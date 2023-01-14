@@ -1,0 +1,79 @@
+{%extends "base.html"%}
+
+{% block titulo %}Vehiculos{%  endblock %}
+
+{%block contenido%}
+
+<div class="card">
+    <div class="card-header">
+        LISTA DE VEHICULOS
+    </div>
+    <div class="card-body">
+    
+            <a name="" id="" class="btn btn-light" href="{% url 'crear'%}" role="button">Agregar nuevo vehiculo</a>
+        <p></p>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Imagen</th>
+                        <th>Categoria</th>
+                        <th>Subcategoria</th>
+                        <th>Marca</th>                     
+                        <th>Modelo</th>
+                        <th>Color</th>
+                        <th>Año</th>
+                        <th>Estado</th>
+                        <th>KilometrosRec<mth>
+                        <th>NumeroPasajeros</th>
+                        <th>NumeroPuertas</th>
+                        <th>TipoMotor</th>
+                        <th>Cilindraje</th>
+                        <th>TipoTransmision</th>
+                        <th>Precio</th>
+                        <th>Disponibilidad</th>
+                        <th>Accion</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {%for vehiculo in vehiculos%}
+                    <tr>
+                        <td>{{vehiculo.id}}</td>
+                        <td>
+                            <img src="{{vehiculo.imagen.url}}" height="100" width="180"> {#!las siguientes dos lineas son para configurar la vista de la imagen en el html!#}
+                        </td>
+                        <td>{{vehiculo.idCategoria}}</td>
+                        <td>{{vehiculo.idSubcategoria}}</td>
+                        <td>{{vehiculo.idMarca}}</td>
+                        <td>{{vehiculo.idModelo}}</td>
+                        <td>{{vehiculo.idColor}}</td>
+                        <td>{{vehiculo.año}}</td>
+                        <td>{{vehiculo.idEstado}}</td>
+                        <td>{{vehiculo.kilometrosRec}}</td>
+                        <td>{{vehiculo.numeroPasajeros}}</td>
+                        <td>{{vehiculo.idNumeroPuertas}}</td>
+                        <td>{{vehiculo.idTipoMotor}}</td>
+                        <td>{{vehiculo.cilindraje}}</td>
+                        <td>{{vehiculo.tipoTransmision}}</td>
+                        <td>{{vehiculo.precio}}</td>
+                        <td>{{vehiculo.disponibilidad}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'editar' vehiculo.id%}" role="button">Editar</a>
+                            |
+                            <a name="" id="" class="btn btn-danger" href="{%url 'eliminar' vehiculo.id%}" role="button">Eliminar</a> 
+                        </td>
+
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+</div>
+
+{%endblock%} 

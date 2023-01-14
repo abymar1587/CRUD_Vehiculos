@@ -1,0 +1,48 @@
+
+<form enctype="multipart/form-data" method="post">
+    {%csrf_token%}
+
+    {%comment%}
+    {%for campo in formulario%}
+    
+    <div class="mb-3">
+    
+        <label for="" class="form-label">{{campo.lebel}}</label>
+
+        <p></p>
+
+        {%if campo.field.widget.input_type == 'file' and campo.value%}
+            
+            <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" alt="" srcset="">
+                  
+        {%endif%} 
+        
+        <input type="{{campo.field.widget.input_type}}"
+        class="form-control" 
+        name="{{campo.name}}" 
+        id="" 
+        aria-describedby ="helpId"
+        placeholder="{{campo.label}}"
+        value={{campo.value | default:''}} >
+    
+    </div>
+    <div class="col-12 help-text"> {{campo.errors}}</div>
+    <p></p>
+    {%endfor%}
+    {%endcomment%}
+
+    {%comment%}
+    El codigo anterior(entre comentario) se puede usar, ero no funciona si necesitas listas deplegables, por eso se usa el siguiente codigo
+    {%endcomment%}
+
+    <table class="form-control">
+        {{formulario.as_table}}
+    </table>
+    
+
+    
+    
+    <input name="" id="" class="btn btn-secondary" type="submit" value="Enviar informacion">
+    <a name="" id="" class="btn btn-primary" href="{%url 'vehiculos'%}" role="button">Cancelar</a>
+    
+</form>
